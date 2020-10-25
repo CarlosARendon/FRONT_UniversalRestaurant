@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "frontUniversalRestaurant"
+    }
+  },
+  "defaultProject": "frontUniversalRestaurant",
+  "cli": {
+    "analytics": false
+  }
 }

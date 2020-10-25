@@ -1,0 +1,69 @@
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <!--CATEGORIA -->
+                <div class="form-group">
+                    <label for="categorySelect">Categoría del producto</label>
+                        <select class="form-control" id="categorySelect">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                </div>
+                <!-- NOMBRE PRODUCTO -->
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="productName">Nombre del producto</label>
+                        <input type="text" class="form-control" id="productName" aria-describedby="productHelp" placeholder="Ingrese el Producto">
+                        <small id="productHelp" class="form-text text-muted">Ingresa el nombre completo del producto.</small>
+                    </div>
+                </div>
+                <!-- DESCRIPCION PRODUCTO -->
+                <div class="form-group">
+                    <label for="descriptionTextarea">Descripción</label>
+                    <textarea class="form-control" id="descriptionTextarea" rows="2"></textarea>
+                </div>
+                <!-- CANTIDAD PRODUCTO -->
+                <div class="form-group">
+                    <label class="col-form-label col-form-label-sm" for="quantityProduct">Cantidad</label>
+                    <input class="form-control form-control-sm" type="number" placeholder="Cantidad de ese producto" id="quantityProduct">
+                </div>
+                <!-- PRECIO PRODUCTO -->
+                <div class="form-group">
+                    <label class="control-label">Precio unitario</label>
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.00</span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <!-- PRECIO PRODUCTO -->
+                <div class="form-group">
+                    <label for="imageProduct">Imagen</label>
+                    <!--<input type="url" name="image" [(ngModel)]="game.image" placeholder="Image" class="form-control">-->
+                    <input type="url" name="image" placeholder="Image" class="form-control">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card card-body text-center">
+        <!-- <img [src]= "game.image == '' ? '/assets/no-disponible.png' : game.image" class="card-img-top">
+        <h3>{{product.id}},{{product.title == '' ? 'Escriba el nombre del Producto' : product.title}}</h3>
+        <p>{{product.description == '' ? 'Write description game' : product.description}}</p>
+        <p>{{product.created_at | date: 'yyyy-MM-dd' }}</p> -->
+        <img src="/assets/no-disponible.png" class="card-img-top" alt="">
+        <h3>Nombre Producto</h3>
+    </div>
+</div>
