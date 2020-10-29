@@ -12,14 +12,15 @@ import { Observable } from 'rxjs';
 })
 export class ProductsService {
 
-  API_URI = 'http://52.44.238.142:3300/api';
+  //API_URI = 'http://52.44.238.142:3300/api';
+  API_URI = 'http://54.80.11.131/api/v1';
   
   constructor(private http: HttpClient) {}
 
   //METODOS
 
   getProducts() {    
-    return this.http.get(`${this.API_URI}/games`);
+    return this.http.get(`${this.API_URI}/saucer/list`);
   }
 
   getProduct(id: string) {
@@ -36,7 +37,7 @@ export class ProductsService {
 
   //para obtener la respuesta
   //Un observable que me retorna un objeto de tipo producto
-  updateGame(id, updatedProduct: Product):Observable<Product>{
+  updateProduct(id, updatedProduct: Product):Observable<Product>{
     return this.http.put(`${this.API_URI}/games/${id}`, updatedProduct);
   }
 }

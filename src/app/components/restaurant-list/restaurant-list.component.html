@@ -1,13 +1,13 @@
-<div class="col-md-4">
-    <div class="card border-warning text-center">
+<div class="col-md-4" *ngFor="let restaurant of restaurants">
+    <div class="card text-center mb-4">
         <div class="card-header bg-info text-white justify-content-between align-items-center">
-            Restaurante 1            
+            <h4>{{restaurant.name}}</h4>
         </div>
-        <!--<img [src]="restaurant.image" class="card-img-top">-->
-        <img src="assets/restaurante.jpg" class="card-img-top">
-        <div class="car-body bg-info">
-            <p>Esta es una descripción del restaurante</p>
-            <p>Categoría: Corrientazos</p>            
+        <img [src]="restaurant.path" class="card-img-top">        
+        <div class="card-body bg-info">
+            <h5>{{restaurant.description}}, {{restaurant.direction}}</h5>            
+            <p>Tel: {{restaurant.phone}}</p>
+            <a [routerLink]="['/restaurant/list-buy/', restaurant.id]" class="btn btn-success btn-block">Ingresar</a>
         </div>
     </div>
 </div>

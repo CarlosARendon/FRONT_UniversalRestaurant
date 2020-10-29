@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-product-list-buy',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListBuyComponent implements OnInit {
 
-  constructor() { }
+  @HostBinding('class') classes = 'row';
+
+  products: any = [];
+
+  constructor(private productService: ProductsService) { }
 
   ngOnInit(): void {
+    this.getProducts();
   }
 
+  getProducts(){
+    this.productService.getProducts().subscribe(
+      (res:any) => { console.log(res),
+        this.products = res.data[0].retaurants;
+      },
+      err => console.log(err)
+    )
+  }
 }
