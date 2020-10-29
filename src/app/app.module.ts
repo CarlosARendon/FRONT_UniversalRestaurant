@@ -14,6 +14,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ProductsService } from './services/products.service';
 import { RestaurantListComponent } from './components/restaurant-list/restaurant-list.component';
 import { RestaurantFormComponent } from './components/restaurant-form/restaurant-form.component';
+import { RestaurantHomeComponent } from './components/restaurant-home/restaurant-home.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RestaurantFormComponent } from './components/restaurant-form/restaurant
     ProductListBuyComponent,
     NavigationComponent,
     RestaurantListComponent,
-    RestaurantFormComponent
+    RestaurantFormComponent,
+    RestaurantHomeComponent
   ],
   imports: [
     BrowserModule,

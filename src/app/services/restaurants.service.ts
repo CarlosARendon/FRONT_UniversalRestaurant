@@ -9,7 +9,6 @@ import { Restaurant } from '../models/restaurant';
 })
 export class RestaurantsService {
 
-  //API_URI = 'http://52.44.238.142:3300/api';
   API_URI = 'http://54.80.11.131/api/v1';
 
   constructor(private http: HttpClient) { }
