@@ -4,12 +4,17 @@ import { AppComponent } from './app.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ProductListBuyComponent } from './components/product-list-buy/product-list-buy.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { RestaurantHomeComponent } from './components/restaurant-home/restaurant-home.component';
 import { RestaurantListComponent } from './components/restaurant-list/restaurant-list.component';
 
 const routes: Routes = [{
   path: '',
-  redirectTo: '/restaurant',
+  redirectTo: 'restaurant-home',
   pathMatch: 'full'
+},
+{
+  path: 'restaurant-home',
+  component: RestaurantHomeComponent
 },
 {
   path: 'restaurant/list',
