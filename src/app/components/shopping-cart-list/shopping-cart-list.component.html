@@ -22,7 +22,8 @@
                         <th scope="col">Codigo</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Precio</th>
-                        <th scope="col">Cantidad</th>                    
+                        <th scope="col">Cantidad</th>
+                        <th></th>             
                     </tr>
     
                 </thead>
@@ -33,6 +34,7 @@
                         <td *ngIf="items!=null">{{items.product.name}}</td>
                         <td *ngIf="items!=null">{{items.unit_price | number}}</td>
                         <td *ngIf="items!=null">{{items.quantity}}</td>
+                        <td><button class="btn btn-info border-warning" (click)="deleteItem(items.id)"><i class="fas fa-trash-alt"></i></button></td>
                     </tr>
     
                     <tr>

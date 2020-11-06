@@ -18,6 +18,6 @@ export class ShoppingCartService {
     return this.http.get(`${this.API_URI}/shopping_cart/show/${idShopCart}`);
   }
   deleteItem(idItem: string ) {
-    return this.http.delete(`${this.API_URI}/api/v1/shopping_cart/delete_item/${idItem}`);
+    return this.http.delete(`${this.API_URI}/shopping_cart/delete_item/${idItem}`);
   }
 }
