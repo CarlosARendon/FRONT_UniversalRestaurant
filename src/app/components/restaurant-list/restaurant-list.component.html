@@ -1,13 +1,23 @@
-<div class="col-md-4" *ngFor="let restaurant of restaurants">
-    <div class="card text-center mb-4">
-        <div class="card-header bg-info text-white justify-content-between align-items-center">
-            <h4>{{restaurant.name}}</h4>
-        </div>
-        <img [src]="restaurant.path" class="card-img-top">        
-        <div class="card-body bg-info">
-            <h5>{{restaurant.description}}, {{restaurant.direction}}</h5>            
-            <p>Tel: {{restaurant.phone}}</p>
-            <a [routerLink]="['/restaurant/list-buy/', restaurant.id]" class="btn btn-success btn-block">Ingresar</a>
+<div class="container p-2">
+    <div class="row">
+        <h2> Restaurantes Afiliados </h2>
+    </div>
+</div>
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let restaurant of restaurants">
+            <div class="card text-center mb-4">
+                <div class="card-header bg-info text-white justify-content-between align-items-center">
+                    <h4>{{restaurant.name}}</h4>
+                </div>
+                <img [src]="restaurant.images.path" class="card-img-top">
+                <div class="card-body bg-info">
+                    <h5>{{restaurant.description}}, {{restaurant.direction}}</h5>
+                    <p>Tel: {{restaurant.phone}}</p>
+                    <a [routerLink]="['/restaurant/list-buy/', restaurant.id]"
+                        class="btn btn-success btn-block">Ingresar</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

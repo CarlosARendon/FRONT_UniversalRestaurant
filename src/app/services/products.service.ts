@@ -18,26 +18,30 @@ export class ProductsService {
   constructor(private http: HttpClient) {}
 
   //METODOS
-
-  getProducts() {    
-    return this.http.get(`${this.API_URI}/saucer/list`);
+  //PRODUCTOS POR RESTAURANTE
+  getProducts(idR: string) {    
+    return this.http.get(`${this.API_URI}/product/list/${idR}`);
   }
-
-  getProduct(id: string) {
-    return this.http.get(`${this.API_URI}/games/${id}`);
+  getProduct(idR: string, idP: string) {
+    return this.http.get(`${this.API_URI}/product/show/${idR}/${idP}`);
   }
-
+  getProductByName(idR: string, idP: string) {
+    return this.http.get(`${this.API_URI}/product/show_by_name/${idR}/${idP}`);
+  }
   saveProduct(product: Product){
     return this.http.post(`${this.API_URI}/games`, product);
   }
-
-  deleteProduct(id: string) {
-    return this.http.delete(`${this.API_URI}/games/${id}`);
+  deleteProduct(idR: string, idP: string) {
+    return this.http.delete(`${this.API_URI}/product/delete/${idR}/${idP}`);
   }
-
   //para obtener la respuesta
   //Un observable que me retorna un objeto de tipo producto
-  updateProduct(id, updatedProduct: Product):Observable<Product>{
-    return this.http.put(`${this.API_URI}/games/${id}`, updatedProduct);
+  /*updateProduct(id, updatedProduct: Product):Observable<Product>{
+    return this.http.put(`${this.API_URI}/product/update/${id}`, updatedProduct);
+  }*/
+
+  //PLATOS POR RESTAURANTE
+  getPlates(idR: string) {    
+    return this.http.get(`${this.API_URI}/saucer/list/${idR}`);
   }
 }

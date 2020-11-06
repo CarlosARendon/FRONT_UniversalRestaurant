@@ -6,41 +6,22 @@ import { ProductListBuyComponent } from './components/product-list-buy/product-l
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { RestaurantHomeComponent } from './components/restaurant-home/restaurant-home.component';
 import { RestaurantListComponent } from './components/restaurant-list/restaurant-list.component';
+import { ShoppingCartListComponent } from './components/shopping-cart-list/shopping-cart-list.component';
 
 const routes: Routes = [{
   path: '',
   redirectTo: 'restaurant-home',
   pathMatch: 'full'
 },
-{
-  path: 'restaurant-home',
-  component: RestaurantHomeComponent
-},
-{
-  path: 'restaurant/list',
-  component: ProductListComponent
-},
-{
-  path: 'restaurant/list-buy',
-  component: ProductListBuyComponent
-},
-{
-  path: 'restaurant/list-buy/:id',
-  component: ProductListBuyComponent
-},
-{
-  path: 'restaurant/add',
-  component: ProductFormComponent
-},
-{
-  path: 'restaurant/edit/:id',
-  component: ProductFormComponent
-},
+{ path: 'restaurant-home', component: RestaurantHomeComponent },
+{ path: 'restaurant/list',component: ProductListComponent },
+{ path: 'restaurant/list-buy',component: ProductListBuyComponent },
+{ path: 'restaurant/list-buy/:id',component: ProductListBuyComponent },
+{ path: 'restaurant/add',component: ProductFormComponent },
+{ path: 'restaurant/edit/:id',component: ProductFormComponent },
 //RUTAS RESTAURANTES
-{
-  path: 'restaurant/restaurant-list',
-  component: RestaurantListComponent
-}
+{ path: 'restaurant/restaurant-list', component: RestaurantListComponent },
+{ path: 'restaurant/shoppingCart-list', component: ShoppingCartListComponent}
 ];
 
 @NgModule({

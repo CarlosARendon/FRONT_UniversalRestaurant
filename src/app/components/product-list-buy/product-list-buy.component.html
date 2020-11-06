@@ -1,18 +1,51 @@
-<div class="container p-4">
-<div class="col-md-4">
-    <div class="card border-warning text-center">
-        <div class="card-header bg-success text-white justify-content-between align-items-center">
-            Nombre Producto
-            <button class="btn btn-info border-warning">
-                <i class="fas fa-shopping-cart"></i>
-            </button>
+<div class="container p-2">
+    <div class="row">
+        <div class="col-md-4 offset">
+            <h2> Sus deliciosos Platos </h2>
         </div>
-        <!--<img [src]="product.image" class="card-img-top">-->
-        <img src="assets/cazuelaMariscos.jpg" class="card-img-top">
-        <div class="car-body bg-warning">
-            <p>Esta es una descripción de la Cazuela de Mariscos</p>
-            <p>Precio: $35.000</p>            
+        <div class="col-md-4 offset-md-2">
+            <h2> Sus Productos </h2>
         </div>
     </div>
 </div>
+
+<div class="contenedor">
+        <div class="col-md-4" *ngFor="let saucer of saucers">
+            <div class="card border-warning text-center">
+                <div class="card-header bg-success text-white justify-content-between align-items-center">
+                    {{saucer.name}}                 
+                    <button class="btn btn-info border-warning">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+                <div class="car-body bg-warning">
+                    <p><b>Descripción: </b>{{saucer.description}} <br>
+                    <b>Categoría: </b>{{saucer.category_saucer.name}} <br>
+                    <b>Precio: </b>{{saucer.cost}}</p>
+                    <p>
+                        <b>Contiene:</b><br>
+                        {{saucer.products_defaults[0].description}}
+                        {{saucer.products_defaults[1].description}}
+                    </p>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="contenedor">
+    <!--<div class="row">-->
+        <div class="col-md-4" *ngFor="let product of products">
+            <div class="card border-info text-center">
+                <div class="card-header bg-danger text-white justify-content-between align-items-center">
+                    {{product.name}}
+                    <button class="btn btn-info border-warning">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+                <img src= "{{'https://54.80.11.131/'+product.images[0].path}}"  class="card-img-top">
+                <div class="car-body bg-warning">
+                    <p>{{product.description}}</p>
+                    <p><b>Precio: </b>{{product.cost}}</p>
+                </div>
+            </div>
+        </div>
 </div>

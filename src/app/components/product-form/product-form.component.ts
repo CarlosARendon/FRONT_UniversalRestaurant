@@ -15,12 +15,11 @@ export class ProductFormComponent implements OnInit {
   //Para la previsualizacion
   product: Product = {
     id: 0,
-    title: '',
+    name: '',
     description: '',
-    quantity: 0,
-    price: 0, 
-    image: '',
-    created_at: new Date()
+    stock: 0,
+    images: [],
+    category_product: []    
   }
   
   //variable para validar si estoy guardando o editando
@@ -35,7 +34,7 @@ export class ProductFormComponent implements OnInit {
     const parametros = this.activatedRoute.snapshot.params;
 
     //Si al iniciar el componente viene con parametros implica que va a editarse un producto
-    if (parametros.id) {
+   /* if (parametros.id) {
       //obtengo el producto con el id del parametro
       this.productService.getProduct(parametros.id).subscribe(
         //guardo el resultado en el objeto producto
@@ -45,12 +44,12 @@ export class ProductFormComponent implements OnInit {
         },
         err => console.log(err)
       )
-    }
+    } */
   }
 
   saveNewProduct(){
     delete this.product.id;
-    delete this.product.created_at;
+    //delete this.product.created_at;
 
     this.productService.saveProduct(this.product).subscribe(
       res => {
@@ -61,7 +60,8 @@ export class ProductFormComponent implements OnInit {
       err => console.log(err)
     )
   }
-  updateProduct(){
+  
+  /*updateProduct(){
     delete this.product.created_at;
     //console.log(this.game);
     this.productService.updateProduct(this.product.id, this.product)
@@ -72,6 +72,6 @@ export class ProductFormComponent implements OnInit {
       },
       err => console.log(err)
     )
-  }
+  }*/
 
 }

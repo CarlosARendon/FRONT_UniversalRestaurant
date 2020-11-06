@@ -1,4 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 
 @Component({
@@ -8,20 +9,32 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductListBuyComponent implements OnInit {
 
-  @HostBinding('class') classes = 'row';
+  //@HostBinding('class') classes = 'row';
 
   products: any = [];
-
-  constructor(private productService: ProductsService) { }
+  saucers: any = [];
+  constructor(private productService: ProductsService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getProducts();
+    var parametros = this.activatedRoute.snapshot.params;
+    console.log(parametros.id);
+    this.getProducts(parametros.id);
+    this.getPlates(parametros.id);
   }
 
-  getProducts(){
-    this.productService.getProducts().subscribe(
+  getProducts(id: string){
+    this.productService.getProducts(id).subscribe(
       (res:any) => { console.log(res),
-        this.products = res.data[0].retaurants;
+        this.products = res.data[0].products;
+      },
+      err => console.log(err)
+    )
+  }
+
+  getPlates(id: string){
+    this.productService.getPlates(id).subscribe(
+      (res:any) => { console.log(res),
+        this.saucers = res.data[0].saucers;
       },
       err => console.log(err)
     )
