@@ -17,7 +17,7 @@ export class ProductListBuyComponent implements OnInit {
 
   ngOnInit(): void {
     var parametros = this.activatedRoute.snapshot.params;
-    console.log(parametros.id);
+    //console.log(parametros.id);
     this.getProducts(parametros.id);
     this.getPlates(parametros.id);
   }

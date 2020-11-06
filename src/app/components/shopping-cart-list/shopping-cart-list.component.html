@@ -27,18 +27,19 @@
     
                 </thead>
                 <tbody>
-                    <tr *ngFor="let items of itemssShopCart;index as i">
-                        <td *ngIf="items.saucer!=null">{{items.saucer.id}}</td>
-                        <td *ngIf="items.saucer!=null"> {{items.saucer.name}}</td>
-                        <td *ngIf="items.saucer!=null">${{items.unit_price | number}}</td>
-                        <td *ngIf="items.saucer!=null">{{items.quantity}}</td>
+                    <tr *ngFor="let items of itemsShopCart">
+                        <!--<td *ngIf="items.saucer!=null">{{items.saucer.id}}</td>-->
+                        <td>{{items.product.id}}</td>
+                        <td *ngIf="items!=null">{{items.product.name}}</td>
+                        <td *ngIf="items!=null">{{items.unit_price | number}}</td>
+                        <td *ngIf="items!=null">{{items.quantity}}</td>
                     </tr>
     
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>${{items.total | number}}</td>
                         <td class="font-weight-bold">Total</td>
+                        <td><b>{{shopCart.total}}</b></td>
                     </tr>
     
                 </tbody>

@@ -9,7 +9,8 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 })
 export class ShoppingCartListComponent implements OnInit {
   
-  itemsShopCart: any = [];
+  itemsShopCart: any;
+  shopCart: any;
 
   constructor(private shoppingCartservice: ShoppingCartService, private activatedRoute: ActivatedRoute) { }
 
@@ -21,7 +22,8 @@ export class ShoppingCartListComponent implements OnInit {
   showItems(idShopCart: string){
     this.shoppingCartservice.showCart(idShopCart).subscribe(
       (res:any) => { console.log(res),
-        this.itemsShopCart = res.data[0].products;
+        this.itemsShopCart = res.data[0].shopping_cart.items;
+        this.shopCart = res.data[0].shopping_cart;
       },
       err => console.log(err)
     )
