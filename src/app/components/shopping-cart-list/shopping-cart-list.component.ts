@@ -15,7 +15,7 @@ export class ShoppingCartListComponent implements OnInit {
   constructor(private shoppingCartservice: ShoppingCartService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    //Establecer la forma de crear un item para cada carrito de compras
+    //Establecer la forma de crear un id para cada carrito de compras
     this.showItems('1');
   }
 
@@ -24,14 +24,6 @@ export class ShoppingCartListComponent implements OnInit {
       (res:any) => { console.log(res),
         this.itemsShopCart = res.data[0].shopping_cart.items;
         this.shopCart = res.data[0].shopping_cart;
-      },
-      err => console.log(err)
-    )
-  }
-
-  addItem(){
-    this.shoppingCartservice.addItem().subscribe(
-      (res:any) => { console.log(res)        
       },
       err => console.log(err)
     )

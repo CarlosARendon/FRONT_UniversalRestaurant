@@ -29,7 +29,7 @@
                 <tbody>
                     <tr *ngFor="let items of itemsShopCart">
                         <!--<td *ngIf="items.saucer!=null">{{items.saucer.id}}</td>-->
-                        <td>{{items.product.id}}</td>
+                        <td *ngIf="items!=null">{{items.product.id}}</td>
                         <td *ngIf="items!=null">{{items.product.name}}</td>
                         <td *ngIf="items!=null">{{items.unit_price | number}}</td>
                         <td *ngIf="items!=null">{{items.quantity}}</td>

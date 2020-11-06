@@ -14,7 +14,7 @@ export class ProductFormComponent implements OnInit {
   
   //Para la previsualizacion
   product: Product = {
-    id: 0,
+    id: '',
     name: '',
     description: '',
     stock: 0,
