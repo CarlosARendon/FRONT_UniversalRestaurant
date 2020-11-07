@@ -1,6 +1,11 @@
-<div><h3>{{saucer.name}}</h3></div>
-<h4>{{saucer.description}}</h4>
-<p>Principio: <br> Proteina: <br> Acompañante: </p>
+<div><h3>Plato: {{saucer.name}}</h3></div>
+<h4>Descripción: {{saucer.description}}</h4>
+<h5>Ingredientes</h5>
+<div *ngFor="let saucerProduct of saucerProducts">
+    <ul>
+        <li>{{saucerProduct.name}}</li>
+    </ul>
+</div>
 <form action="">
     <input type="button" value="Volver">
     <input type="submit" value="Guardar">
