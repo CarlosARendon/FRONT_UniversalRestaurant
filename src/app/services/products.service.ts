@@ -44,4 +44,7 @@ export class ProductsService {
   getPlates(idR: string) {    
     return this.http.get(`${this.API_URI}/saucer/list/${idR}`);
   }
+  getPlate(idR: string, idP: string) {    
+    return this.http.get(`${this.API_URI}/saucer/show/${idR}/${idP}`);
+  }
 }

@@ -17,6 +17,12 @@
                     <button class="btn btn-info border-warning">
                         <i class="fas fa-shopping-cart"></i>
                     </button>
+                    <a [routerLink]="['/restaurant/saucer-edit/',idRestaurante,saucer.id]" class="btn btn-info btn-block">
+                        Editar plato
+                    </a>
+                    <button class="btn btn-info border-warning">
+                        <i class="fas fa-marker"></i>
+                    </button>
                 </div>
                 <div class="car-body bg-warning">
                     <p><b>Descripción: </b>{{saucer.description}} <br>

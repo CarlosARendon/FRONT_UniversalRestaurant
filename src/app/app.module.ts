@@ -17,6 +17,7 @@ import { RestaurantFormComponent } from './components/restaurant-form/restaurant
 import { RestaurantHomeComponent } from './components/restaurant-home/restaurant-home.component';
 import { ChefFunctionsComponent } from './components/chef-functions/chef-functions.component';
 import { ShoppingCartListComponent } from './components/shopping-cart-list/shopping-cart-list.component';
+import { SaucerEditComponent } from './components/saucer-edit/saucer-edit.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ShoppingCartListComponent } from './components/shopping-cart-list/shopp
     RestaurantFormComponent,
     RestaurantHomeComponent,
     ChefFunctionsComponent,
-    ShoppingCartListComponent
+    ShoppingCartListComponent,
+    SaucerEditComponent
   ],
   imports: [
     BrowserModule,

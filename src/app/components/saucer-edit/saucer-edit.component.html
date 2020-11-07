@@ -1,0 +1,25 @@
+<div><h3>{{saucer.name}}</h3></div>
+<h4>{{saucer.description}}</h4>
+<p>Principio: <br> Proteina: <br> Acompañante: </p>
+<form action="">
+    <input type="button" value="Volver">
+    <input type="submit" value="Guardar">
+    <div class="form-group">
+        <label for="principioSaucer">Principio</label>
+        <select class="form-control" id="principioSaucer">
+            <option *ngFor="let product of products">{{product.name}}</option>            
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="proteinSaucer">Proteína</label>
+        <select class="form-control" id="prinpioSaucer">
+            <option *ngFor="let product of products">{{product.name}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="acompañanteSaucer">Acompañante</label>
+        <select class="form-control" id="prinpioSaucer">
+            <option *ngFor="let product of products">{{product.name}}</option>
+        </select>
+    </div>
+</form>

@@ -6,6 +6,7 @@ import { ProductListBuyComponent } from './components/product-list-buy/product-l
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { RestaurantHomeComponent } from './components/restaurant-home/restaurant-home.component';
 import { RestaurantListComponent } from './components/restaurant-list/restaurant-list.component';
+import { SaucerEditComponent } from './components/saucer-edit/saucer-edit.component';
 import { ShoppingCartListComponent } from './components/shopping-cart-list/shopping-cart-list.component';
 
 const routes: Routes = [{
@@ -21,7 +22,8 @@ const routes: Routes = [{
 { path: 'restaurant/edit/:id',component: ProductFormComponent },
 //RUTAS RESTAURANTES
 { path: 'restaurant/restaurant-list', component: RestaurantListComponent },
-{ path: 'restaurant/shoppingCart-list', component: ShoppingCartListComponent}
+{ path: 'restaurant/shoppingCart-list', component: ShoppingCartListComponent},
+{ path: 'restaurant/saucer-edit/:id/:id', component: SaucerEditComponent}
 ];
 
 @NgModule({

@@ -15,13 +15,15 @@ export class ProductListBuyComponent implements OnInit {
 
   products: any = [];
   saucers: any = [];
-  product: Product;
+  idRestaurante: any = '';
+  //product: Product;
 
   constructor(private productService: ProductsService,private shoppingCartservice: ShoppingCartService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     var parametros = this.activatedRoute.snapshot.params;
-    //console.log(parametros.id);
+    this.idRestaurante = parametros.id;
+    console.log(parametros.id);
     this.getProducts(parametros.id);
     this.getPlates(parametros.id);
   }
@@ -45,13 +47,6 @@ export class ProductListBuyComponent implements OnInit {
   };
 
   addItem(idProducto: any){
-    /*this.product.id = idProducto;
-    this.product.stock = 1;
-    delete this.product.category_product;
-    delete this.product.cost;
-    delete this.product.description;
-    delete this.product.images;
-    delete this.product.name;*/
     let productoEnv = {
       "product_id" : idProducto,
       "quantity" : 1
