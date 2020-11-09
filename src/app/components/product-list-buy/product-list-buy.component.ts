@@ -15,7 +15,7 @@ export class ProductListBuyComponent implements OnInit {
 
   products: any = [];
   saucers: any = [];
-  idRestaurante: any = '';
+  idRestaurante: any;
   //product: Product;
 
   constructor(private productService: ProductsService,private shoppingCartservice: ShoppingCartService, private activatedRoute: ActivatedRoute) { }

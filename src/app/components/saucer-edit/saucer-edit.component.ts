@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
@@ -15,14 +15,15 @@ export class SaucerEditComponent implements OnInit {
   categories:any =[];
   selectedOptions:any=[];
   defaultProducts:any=[];
-
-  constructor(private productService: ProductsService, private shoppingCartservice: ShoppingCartService, private activatedRoute: ActivatedRoute) { }
+  idRest: any;
+  constructor(private productService: ProductsService, private shoppingCartservice: ShoppingCartService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     //cadena completa de la URl para obtener el idRestaurante
     var parametros = this.activatedRoute.snapshot.url.join('');
     //obtengo el id del restaurante
     var idRestaurante = parametros.substr(21,1);
+    this.idRest = idRestaurante;
     this.getProducts(idRestaurante);
 
   }
@@ -90,6 +91,7 @@ export class SaucerEditComponent implements OnInit {
           );
         }
         alert("El plato fue agregado Correctamente al carrito de compras")
+        this.router.navigate(['/restaurant/list-buy/',this.idRest]);
       },
       err => console.log(err)
     )

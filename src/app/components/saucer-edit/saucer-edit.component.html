@@ -21,6 +21,12 @@
         <li>{{saucerProduct.name}}</li>
     </ul>
 </div>
+<button (click)="storeNewConfiguration()">Guardar Y añadir al carrito</button>
+<div class="btn-volver">        
+    <a href="restaurant/list-buy/{{idRest}}">
+        Volver <i class="fas fa-angle-double-right"></i>
+    </a>       
+</div>
 <div>Personaliza el plato a tu gusto!</div>
 <div class="miContainerFlex">
 
@@ -35,4 +41,4 @@
     </div>
     
 </div>
-<button (click)="storeNewConfiguration()">Guardar Y añadir al carrito</button>
+
