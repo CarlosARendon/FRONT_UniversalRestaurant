@@ -1,0 +1,50 @@
+ul {
+	list-style: none;
+	border-style: solid;
+	border-color: #000000;
+}
+
+li{
+	padding: 10px;
+}
+
+.container {
+	width: 90%;
+	margin: auto;
+}
+
+.semanario-titulo {
+    margin: 20px 0;
+    text-transform: uppercase;    
+}
+
+.container h2{
+    text-align: center;
+    font-size: 40px;
+}
+
+.servicios {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 25px;
+	margin: 70px 0;	
+}
+
+.servicios img {
+	width: 100%;
+	height: 120px;
+}
+
+.servicios h3 {
+	font-size: 30px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.servicios a {
+	padding: 10px 0;
+	color: #000000;
+	text-transform: uppercase;
+	display: inline-block;
+	font-weight: bold;
+}

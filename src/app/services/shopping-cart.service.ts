@@ -8,7 +8,7 @@ import { Product } from '../models/Product';
 export class ShoppingCartService {
   
   API_URI = 'http://54.80.11.131/api/v1';
-
+  
   constructor(private http: HttpClient) { }
 
   addItem(product: any) {

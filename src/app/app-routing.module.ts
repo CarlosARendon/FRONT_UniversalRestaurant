@@ -8,6 +8,7 @@ import { RestaurantHomeComponent } from './components/restaurant-home/restaurant
 import { RestaurantListComponent } from './components/restaurant-list/restaurant-list.component';
 import { SaucerEditComponent } from './components/saucer-edit/saucer-edit.component';
 import { ShoppingCartListComponent } from './components/shopping-cart-list/shopping-cart-list.component';
+import { WeeklySaucersComponent } from './components/weekly-saucers/weekly-saucers.component';
 
 const routes: Routes = [{
   path: '',
@@ -23,7 +24,8 @@ const routes: Routes = [{
 //RUTAS RESTAURANTES
 { path: 'restaurant/restaurant-list', component: RestaurantListComponent },
 { path: 'restaurant/shoppingCart-list', component: ShoppingCartListComponent},
-{ path: 'restaurant/saucer-edit/:id/:id', component: SaucerEditComponent}
+{ path: 'restaurant/saucer-edit/:id/:id', component: SaucerEditComponent},
+{ path: 'restaurant/weekly-saucer/:id', component: WeeklySaucersComponent}
 ];
 
 @NgModule({

@@ -39,7 +39,7 @@ export class SaucerEditComponent implements OnInit {
   getProducts(id: string){
     this.productService.getProducts(id).subscribe(
       (res:any) => { console.log(res),
-        this.products = res.data[0].products;
+        this.products = res.data[0].weekly_saucer;
       },
       err => console.log(err)
     )
