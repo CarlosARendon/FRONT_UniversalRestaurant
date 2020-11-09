@@ -19,6 +19,7 @@ import { ChefFunctionsComponent } from './components/chef-functions/chef-functio
 import { ShoppingCartListComponent } from './components/shopping-cart-list/shopping-cart-list.component';
 import { SaucerEditComponent } from './components/saucer-edit/saucer-edit.component';
 import { WeeklySaucersComponent } from './components/weekly-saucers/weekly-saucers.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { WeeklySaucersComponent } from './components/weekly-saucers/weekly-sauce
     ChefFunctionsComponent,
     ShoppingCartListComponent,
     SaucerEditComponent,
-    WeeklySaucersComponent
+    WeeklySaucersComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

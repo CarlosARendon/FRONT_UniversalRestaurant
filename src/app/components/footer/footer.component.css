@@ -1,0 +1,58 @@
+.redes-sociales {
+	margin: 50px;
+}
+
+.redes-sociales p{
+	text-align: center;
+	font-size: 30px;
+	margin-bottom: 20px;
+	margin: 50px;
+}
+
+.links {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.links a{
+	margin: 10px;
+}
+
+.links a i {
+	font-size: 3rem;
+}
+
+/* Footer */
+
+.footer-links {
+	background: #1E1515;
+	color: #F5EEEE;
+	font-size: 12px;
+	padding: 35px 0;
+}
+
+.footer-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.footer-container ul {
+	margin: 0 auto;
+}
+
+.footer-container ul li {
+	line-height: 2.8;
+}
+
+.footer {
+	background: #1E1515;
+	color: #616161;
+	font-size: 12px;
+	padding: 20px 0;
+	text-align: center;
+	padding-bottom: 20px;
+}
