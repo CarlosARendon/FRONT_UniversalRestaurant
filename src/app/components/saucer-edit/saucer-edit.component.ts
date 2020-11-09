@@ -12,37 +12,120 @@ export class SaucerEditComponent implements OnInit {
   products: any = [];
   saucer: any = [];
   saucerProducts: any = [];
+  categories:any =[];
+  selectedOptions:any=[];
+  defaultProducts:any=[];
+
   constructor(private productService: ProductsService, private shoppingCartservice: ShoppingCartService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    var idProducto = this.activatedRoute.snapshot.params;
     //cadena completa de la URl para obtener el idRestaurante
     var parametros = this.activatedRoute.snapshot.url.join('');
     //obtengo el id del restaurante
     var idRestaurante = parametros.substr(21,1);
-    console.log(idProducto.id, idRestaurante);
-
     this.getProducts(idRestaurante);
-    this.getProduct(idRestaurante,idProducto.id);
+
+  }
+  ngAfterViewInit(){
+
+
+
+  }
+  getProducts(idRest: string){
+
+    this.productService.getProducts(idRest).subscribe(
+      (res:any) => { 
+        console.log(res),
+        this.products = res.data[0].products;
+        let idProducto =this.activatedRoute.snapshot.params;
+        this.productService.getPlate(idRest, idProducto.id).subscribe(
+          (res:any) => { 
+            this.saucer = res.data[0].saucer;
+            this.saucerProducts = this.products;
+            this.defaultProducts= res.data[0].saucer.products_defaults; 
+            let differentCategories:any=[];
+            for(let i=0;i< this.saucerProducts.length;i++){
+              if(!differentCategories.includes(this.saucerProducts[i].category_product.id)){
+                differentCategories.push(this.saucerProducts[i].category_product.id);
+              }
+            }
+            for(let i=0;i<differentCategories.length;i++){
+              let vecCategory:any=[];
+              for(let j=0;j< this.saucerProducts.length;j++){
+                if(this.saucerProducts[j].category_product.id == differentCategories[i]){
+                  vecCategory.push(this.saucerProducts[j]);
+                }
+              }
+              if(vecCategory.length>0) this.categories.push(vecCategory);
+                
+            }
+            
+          },
+          err => console.log(err)
+        )
+      },
+      err => console.log(err)
+    )
+  };
+
+  storeNewConfiguration(){
+    if(this.selectedOptions.length==0){
+      alert("Debes cambiar algun ingrediente")
+      return;
+    }
+    var parametros = this.activatedRoute.snapshot.url.join('');
+    var idRestaurante = parametros.substr(21,1);
+
+
+    this.productService.addSaucer(idRestaurante,this.selectedOptions).subscribe(
+      (res:any) => { 
+        //alert(JSON.stringify(res))
+        alert(JSON.stringify(this.selectedOptions));
+
+        for(let i=0; this.selectedOptions.length;i++){
+          this.shoppingCartservice.addItem(this.selectedOptions[i].product).subscribe((rta:any)=>
+          {
+            console.log(JSON.stringify(rta));
+          }
+          );
+        }
+        alert("El plato fue agregado Correctamente al carrito de compras")
+      },
+      err => console.log(err)
+    )
+    
   }
 
-  getProduct(idRest, idProd){
-    this.productService.getPlate(idRest, idProd).subscribe(
-      (res:any) => { console.log(res),
-        this.saucer = res.data[0].saucer;
-        this.saucerProducts = res.data[0].saucer.products_defaults;
-      },
-      err => console.log(err)
-    )
-  };
+  changeInSelect(product:any,categorySelect:any){
+      let tempArray:any=[];
+      if(!this.isproductAlreadySelected(product,this.selectedOptions)){
+        this.selectedOptions.push({"category":categorySelect,"product":product});
+        let optionSelected=document.getElementById('select'+categorySelect+'_option'+product);
+        optionSelected.style.backgroundColor="rgb(37,122,253)"
+      }else{
+        //Si lo seleciona de nuevo lo quitamos
+        for(let i=0; i<this.selectedOptions.length;i++){
+          if(product == this.selectedOptions[i].product) continue;
+          tempArray.push(this.selectedOptions[i]);
+        }
+        let optionSelected=document.getElementById('select'+categorySelect+'_option'+product);
+        optionSelected.style.backgroundColor="transparent";
+        this.selectedOptions=tempArray;
 
-  getProducts(id: string){
-    this.productService.getProducts(id).subscribe(
-      (res:any) => { console.log(res),
-        this.products = res.data[0].weekly_saucer;
-      },
-      err => console.log(err)
-    )
-  };
+      }    
+      //alert(JSON.stringify(this.selectedOptions));
+  }
+
+  isproductAlreadySelected(product:any,vecProducts:any):Boolean{
+    for(let i=0;i<vecProducts.length;i++){
+      if(vecProducts[i].product == product){
+        return true;
+      }
+    }
+    return false;
+    
+  }
+
+  
 
 }

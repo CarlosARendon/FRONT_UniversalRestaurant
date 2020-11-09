@@ -1,30 +1,38 @@
+<style>
+    .miContainerFlex{
+        display: flex ;
+        width: 100%;
+        padding: 2rem;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .card{
+        height: 300px;
+        width: 400px !important;
+        margin-bottom: 2rem;
+        border-color: gray;
+    }
+</style>
 <div><h3>Plato: {{saucer.name}}</h3></div>
 <h4>Descripción: {{saucer.description}}</h4>
 <h5>Ingredientes</h5>
-<div *ngFor="let saucerProduct of saucerProducts">
+<div *ngFor="let saucerProduct of defaultProducts">
     <ul>
         <li>{{saucerProduct.name}}</li>
     </ul>
 </div>
-<form action="">
-    <input type="button" value="Volver">
-    <input type="submit" value="Guardar">
-    <div class="form-group">
-        <label for="principioSaucer">Principio</label>
-        <select class="form-control" id="principioSaucer">
-            <option *ngFor="let product of products">{{product.name}}</option>            
-        </select>
+<div>Personaliza el plato a tu gusto!</div>
+<div class="miContainerFlex">
+
+    <div *ngFor="let category of this.categories;index as i;"  class="card" style="width: 18rem;">
+        <div class="card-body">
+                <h3 class="card-title">{{category[0].category_product.name}}</h3>
+                <div class="card-text" id="select{{category[0].category_product.id}}_option{{product.id}}" *ngFor="let product of category;index as j" >
+                    <input (change)="changeInSelect($event.target.value,category[0].category_product.id)"  type="checkbox"  value="{{product.id}}">
+                    <label for="">{{product.name}}</label>
+                </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="proteinSaucer">Proteína</label>
-        <select class="form-control" id="prinpioSaucer">
-            <option *ngFor="let product of products">{{product.name}}</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="acompañanteSaucer">Acompañante</label>
-        <select class="form-control" id="prinpioSaucer">
-            <option *ngFor="let product of products">{{product.name}}</option>
-        </select>
-    </div>
-</form>
+    
+</div>
+<button (click)="storeNewConfiguration()">Guardar Y añadir al carrito</button>

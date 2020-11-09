@@ -35,4 +35,7 @@ export class RestaurantsService {
   updateRestaurant(id, updatedRestaurant: Restaurant):Observable<Restaurant>{
     return this.http.put(`${this.API_URI}/games/${id}`, updatedRestaurant);
   }
+
+
+
 }
