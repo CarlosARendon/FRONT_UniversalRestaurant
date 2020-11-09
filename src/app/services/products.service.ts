@@ -47,4 +47,19 @@ export class ProductsService {
   getPlate(idR: string, idP: string) {    
     return this.http.get(`${this.API_URI}/saucer/show/${idR}/${idP}`);
   }
+
+  addSaucer(idR: string, selectedProducts:any){
+    let dataToSend:FormData = new FormData();
+    dataToSend.append('name','new producto personalizado');
+    dataToSend.append('description','new producto personalizado');
+    dataToSend.append('saucer_category_id','1');
+    dataToSend.append('restaurant_id',idR);
+    for(let i=0; i< selectedProducts.length;i++){
+      dataToSend.append('products['+i+'][default]','1')
+      dataToSend.append('products['+i+'][product_id]',selectedProducts[i].product+'')
+    }
+  
+    return this.http.post(`${this.API_URI}/saucer/register`,dataToSend);
+
+  }
 }

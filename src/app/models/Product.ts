@@ -7,3 +7,4 @@ export interface Product {
     images: string[];
     category_product?: string[];
 }
+

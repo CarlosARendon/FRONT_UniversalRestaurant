@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
 import { Product } from '../models/Product';
 
 @Injectable({
@@ -12,7 +12,11 @@ export class ShoppingCartService {
   constructor(private http: HttpClient) { }
 
   addItem(product: any) {
-    return this.http.post(`${this.API_URI}/shopping_cart/add_item`,product);
+     
+    let myParams = new HttpParams()
+        .set('product_id', product)
+        .set('quantity', '1')
+    return this.http.post(`${this.API_URI}/shopping_cart/add_item`,null,{params:myParams});
   }
   showCart(idShopCart: string) {
     return this.http.get(`${this.API_URI}/shopping_cart/show/${idShopCart}`);
