@@ -23,7 +23,7 @@ export class RestaurantsService {
   }
 
   saveRestaurant(restaurant: Restaurant){
-    return this.http.post(`${this.API_URI}/restaurants/Register`, restaurant);
+    return this.http.post(`${this.API_URI}/restaurants/register`, restaurant);
   }
 
   deleteRestaurant(id: string) {

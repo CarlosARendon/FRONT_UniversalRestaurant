@@ -1,0 +1,11 @@
+.card {
+    background-color: #1E1515;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+	margin: 70px 0;
+}
+

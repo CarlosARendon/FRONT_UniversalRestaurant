@@ -1,1 +1,49 @@
-<p>restaurant-form works!</p>
+<div class="container">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h4>Agregar Restaurante</h4>
+            </div>
+            <form id="restaurant-form" class="card-body">
+                <div class="form-group">
+                    <input type="text" name="name" [(ngModel)]="restaurant.name" placeholder="Nombre Restaurante" class="form-control" autofocus>
+                </div>                
+                <div class="form-group">
+                    <input type="text" name="description" [(ngModel)]="restaurant.description" placeholder="Descripción Restaurante" class="form-control">
+                </div>                
+                <div class="form-group">
+                    <input type="text" name="address" [(ngModel)]="restaurant.address" placeholder="Dirección Restaurante" class="form-control">
+                </div>                
+                <div class="form-group">
+                    <input type="text" name="phone" [(ngModel)]="restaurant.phone" placeholder="Teléfono Restaurante" class="form-control">
+                </div>                
+                <div class="form-group">
+                    <input type="text" id="imgProd" name="images" [(ngModel)]="restaurant.image" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="domain" [(ngModel)]="restaurant.domain" placeholder="Dominio Restaurante" class="form-control">
+                </div>
+                <button class="btn btn-success btn-block" (click)="saveNewRestaurant()">
+                    Guardar
+                </button >
+            </form>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div id="restaurants-list"></div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card card-body text-center">
+            <div class="preview">
+                <!-- Si 'game.image' es un string vacío utilice la imagen por defecto sino use 'game.image'-->
+                <h3>{{restaurant.name == '' ? 'Escriba el nombre del restaurante' : restaurant.name}}</h3>
+                <img [src]= "restaurant.image == '' ? '../../assets/no-disponible.png' : restaurant.image" class="card-img-top">
+                <p>{{restaurant.description == '' ? 'Write description restaurant' : restaurant.description}}</p>
+                <p>{{restaurant.address == '' ? 'Write address restaurant' : restaurant.address}}</p>
+                <p>{{restaurant.domain == '' ? 'Write domain restaurant' : restaurant.domain}}</p>
+            </div>
+        </div>
+    </div>
+</div>

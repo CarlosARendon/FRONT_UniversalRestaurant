@@ -13,13 +13,14 @@ export class ProductFormComponent implements OnInit {
   @HostBinding('class') classes = 'row';
   
   //Para la previsualizacion
-  product: Product = {
-    id: '',
+  product: any = {    
     name: '',
     description: '',
+    cost: '',
     stock: 0,
-    images: [],
-    category_product: []    
+    restaurant_id: '',
+    categories_product_id: '',
+    image: '',    
   }
   
   //variable para validar si estoy guardando o editando

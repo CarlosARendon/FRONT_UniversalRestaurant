@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ProductListBuyComponent } from './components/product-list-buy/product-list-buy.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { RestaurantFormComponent } from './components/restaurant-form/restaurant-form.component';
 import { RestaurantHomeComponent } from './components/restaurant-home/restaurant-home.component';
 import { RestaurantListComponent } from './components/restaurant-list/restaurant-list.component';
 import { SaucerEditComponent } from './components/saucer-edit/saucer-edit.component';
@@ -19,10 +20,11 @@ const routes: Routes = [{
 { path: 'restaurant/list',component: ProductListComponent },
 { path: 'restaurant/list-buy',component: ProductListBuyComponent },
 { path: 'restaurant/list-buy/:id',component: ProductListBuyComponent },
-{ path: 'restaurant/add',component: ProductFormComponent },
+{ path: 'restaurant/product-form',component: ProductFormComponent },
 { path: 'restaurant/edit/:id',component: ProductFormComponent },
 //RUTAS RESTAURANTES
 { path: 'restaurant/restaurant-list', component: RestaurantListComponent },
+{ path: 'restaurant/restaurant-form', component: RestaurantFormComponent },
 { path: 'restaurant/shoppingCart-list', component: ShoppingCartListComponent},
 { path: 'restaurant/saucer-edit/:id/:id', component: SaucerEditComponent},
 { path: 'restaurant/weekly-saucer/:id', component: WeeklySaucersComponent}

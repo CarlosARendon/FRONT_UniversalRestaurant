@@ -20,6 +20,7 @@ import { ShoppingCartListComponent } from './components/shopping-cart-list/shopp
 import { SaucerEditComponent } from './components/saucer-edit/saucer-edit.component';
 import { WeeklySaucersComponent } from './components/weekly-saucers/weekly-saucers.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ShoppingCartListComponent,
     SaucerEditComponent,
     WeeklySaucersComponent,
-    FooterComponent
+    FooterComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

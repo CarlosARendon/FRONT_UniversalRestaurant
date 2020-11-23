@@ -1,0 +1,63 @@
+/*Navigation style*/
+a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+.container {
+	width: 90%;
+	margin: auto;
+}
+
+.nav-main {
+	font-size: 17px;
+	/*Organizar elementos uno al lado del otro*/
+	display: flex;
+	/*Usen todo el ancho disponible*/
+	justify-content: space-between;
+	align-items: center;
+	height: 60px;
+	padding: 20px 0;
+}
+
+.nav-brand {
+	width: 50px;
+    border-style: solid;
+    border-color: black;
+}
+
+/*Navigation LEFT*/
+
+.nav-main ul{
+	display: flex;
+}
+
+.nav-main ul li{
+	padding: 10px;
+}
+
+.nav-main ul li a {
+	padding: 8px;
+}
+
+.nav-main ul li a:hover {
+	border-bottom: 2px solid #fff;
+}
+
+.nav-main ul.nav-menu {
+	flex: 1;
+	margin-left: 20px;
+}
+
+.menu-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  z-index: 2;
+  display: none;
+}
