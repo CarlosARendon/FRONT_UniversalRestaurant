@@ -1,4 +1,14 @@
-<app-navigation></app-navigation>
-<app-nav-bar></app-nav-bar>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<!-- app.component.html -->
+<div>     
+    <div class="page-container">      
+        <app-nav-bar></app-nav-bar>
+        <div class="main-content">
+            <app-menu></app-menu>
+            <app-page-title></app-page-title>            
+            <router-outlet></router-outlet>  
+            <app-footer></app-footer>  
+        </div>       
+        <app-offset-area></app-offset-area>
+        
+    </div>
+</div>

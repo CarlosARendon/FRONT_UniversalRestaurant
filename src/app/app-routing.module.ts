@@ -10,12 +10,25 @@ import { RestaurantListComponent } from './components/restaurant-list/restaurant
 import { SaucerEditComponent } from './components/saucer-edit/saucer-edit.component';
 import { ShoppingCartListComponent } from './components/shopping-cart-list/shopping-cart-list.component';
 import { WeeklySaucersComponent } from './components/weekly-saucers/weekly-saucers.component';
+import { PageContainerComponent } from './components/page-container/page-container.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { CenterContentComponent } from './components/center-content/center-content.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
+
 
 const routes: Routes = [{
   path: '',
   redirectTo: 'restaurant-home',
   pathMatch: 'full'
 },
+//Rutas nuevas
+//{ path: 'home', component: PageContainerComponent},
+{ path: 'home', component: CenterContentComponent},
+{ path: 'login', component: LoginComponent},
+{ path: 'register', component: RegisterComponent},
+{ path: 'reservation', component: ReservationComponent},
+//Rutas anteriores
 { path: 'restaurant-home', component: RestaurantHomeComponent },
 { path: 'restaurant/list',component: ProductListComponent },
 { path: 'restaurant/list-buy',component: ProductListBuyComponent },
