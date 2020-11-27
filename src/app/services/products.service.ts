@@ -28,8 +28,8 @@ export class ProductsService {
   getProductByName(idR: string, idP: string) {
     return this.http.get(`${this.API_URI}/product/show_by_name/${idR}/${idP}`);
   }
-  saveProduct(product: Product){
-    return this.http.post(`${this.API_URI}/games`, product);
+  saveProduct(product: any){
+    return this.http.post(`${this.API_URI}/product/register`, product);
   }
   deleteProduct(idR: string, idP: string) {
     return this.http.delete(`${this.API_URI}/product/delete/${idR}/${idP}`);

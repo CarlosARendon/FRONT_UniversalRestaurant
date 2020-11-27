@@ -2,6 +2,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/Product';
 import { ProductsService } from '../../services/products.service';
+import { ProductCategoryService } from '../../services/product-category.service';
 
 @Component({
   selector: 'app-product-form',
@@ -10,7 +11,7 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductFormComponent implements OnInit {
 
-  @HostBinding('class') classes = 'row';
+  //@HostBinding('class') classes = 'row';
   
   //Para la previsualizacion
   product: any = {    
@@ -18,26 +19,29 @@ export class ProductFormComponent implements OnInit {
     description: '',
     cost: '',
     stock: 0,
-    restaurant_id: '',
+    restaurant_id: '1',
     categories_product_id: '',
     image: '',    
   }
+
+  categories:any =[];
   
   //variable para validar si estoy guardando o editando
   edit: boolean = false;
 
-  constructor(private productService: ProductsService, private router:Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private productService: ProductsService, private categoriesServices: ProductCategoryService, private router:Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getProductCategories();
     //obtengo los datos del producto a editar
     //con esta constante guardo los datos que vienen en la ruta,
     //en este caso el ID del prodcuto a editar
     const parametros = this.activatedRoute.snapshot.params;
 
     //Si al iniciar el componente viene con parametros implica que va a editarse un producto
-   /* if (parametros.id) {
+    if (parametros.id) {
       //obtengo el producto con el id del parametro
-      this.productService.getProduct(parametros.id).subscribe(
+      this.productService.getProduct(parametros.id,'1').subscribe(
         //guardo el resultado en el objeto producto
         res => {
           this.product = res;
@@ -45,11 +49,11 @@ export class ProductFormComponent implements OnInit {
         },
         err => console.log(err)
       )
-    } */
+    } 
   }
 
   saveNewProduct(){
-    delete this.product.id;
+    //delete this.product.id;
     //delete this.product.created_at;
 
     this.productService.saveProduct(this.product).subscribe(
@@ -63,7 +67,6 @@ export class ProductFormComponent implements OnInit {
   }
   
   /*updateProduct(){
-    delete this.product.created_at;
     //console.log(this.game);
     this.productService.updateProduct(this.product.id, this.product)
     .subscribe(
@@ -74,5 +77,17 @@ export class ProductFormComponent implements OnInit {
       err => console.log(err)
     )
   }*/
+
+  getProductCategories(){
+    this.categoriesServices.getCategories()
+    .subscribe(
+      (res:any) => {
+        console.log(res);
+        this.categories = res.data[0].categories;
+        console.log(this.categories);
+      },
+      err => console.log(err)
+    )
+  }
 
 }
