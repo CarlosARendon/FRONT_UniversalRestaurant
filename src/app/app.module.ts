@@ -34,6 +34,7 @@ import { ProductsService } from './services/products.service';
 import { UsersService } from './services/users/users.service';
 
 import { CookieService } from 'ngx-cookie-service';
+import { BillComponent } from './components/bill/bill.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { CookieService } from 'ngx-cookie-service';
     OffsetAreaComponent,
     LoginComponent,
     RegisterComponent,
-    ReservationComponent
+    ReservationComponent,
+    BillComponent
   ],
   imports: [
     BrowserModule,

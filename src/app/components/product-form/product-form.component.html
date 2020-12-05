@@ -8,8 +8,8 @@
                 <!--<select [(ngModel)]="product.categories_product_id" class="form-control" id="categorySelect">
                     <option *ngFor="let category of this.categories" [(ngValue)]="category.id">{{category.name}}</option>                    
                 </select>-->
-                <select [(ngModel)]="product.categories_product_id" class="form-control" id="categorySelect">
-                    <option *ngFor="let category of this.categories" >{{category.id}}</option>                    
+                <select name="categorySelect" [(ngModel)]="product.categories_product_id" class="form-control">
+                    <option *ngFor="let category of this.categories" [ngValue]="category.id" >{{category.name}}</option>                    
                 </select>
             </div>
             <!-- NOMBRE PRODUCTO -->

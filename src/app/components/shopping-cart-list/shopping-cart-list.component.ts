@@ -9,6 +9,15 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 })
 export class ShoppingCartListComponent implements OnInit {
   
+  shoppingCart: any = {
+    name: '',
+    address: '',
+    phone: '',
+    payment: '',
+    shopCartId: '' 
+  }
+
+
   itemsShopCart: any;
   shopCart: any;
 
@@ -35,5 +44,9 @@ export class ShoppingCartListComponent implements OnInit {
       },
       err => console.log(err)
     )
+  }
+
+  generateBill(){
+
   }
 }

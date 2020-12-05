@@ -1,0 +1,7 @@
+.card {
+    color: black;
+}
+
+.nombretelefono {
+    grid-template-columns: repeat(2, 2fr);
+}
