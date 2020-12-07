@@ -5,6 +5,9 @@ body, html { height:100%;
 	background-color:silver;
 	}
 	
+	.container {
+		color: black;
+	}
  /*
 .contenedor{ border:1px solid black;
 	width:49.5%;

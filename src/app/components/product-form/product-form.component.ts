@@ -19,7 +19,7 @@ export class ProductFormComponent implements OnInit {
     description: '',
     cost: '',
     stock: 0,
-    restaurant_id: '1',
+    restaurant_id: '5',
     categories_product_id: '',
     image: '',    
   }

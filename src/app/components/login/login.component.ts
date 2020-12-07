@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.router.navigateByUrl('/');/*
     const user = {email: this.email, password: this.password};
     this.userService.login(user).subscribe( data => {
       this.userService.setToken(data.token);
@@ -25,6 +26,6 @@ export class LoginComponent implements OnInit {
     },
     error => {
       console.log(error);
-    });
+    });*/
   }
 }
