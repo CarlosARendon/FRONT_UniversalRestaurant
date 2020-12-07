@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BillService } from 'src/app/services/bill.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
@@ -14,14 +15,13 @@ export class ShoppingCartListComponent implements OnInit {
     address: '',
     phone: '',
     payment: '',
-    shopCartId: '' 
+    shopCartId: '1' 
   }
-
 
   itemsShopCart: any;
   shopCart: any;
 
-  constructor(private shoppingCartservice: ShoppingCartService, private activatedRoute: ActivatedRoute) { }
+  constructor(private shoppingCartservice: ShoppingCartService, private activatedRoute: ActivatedRoute, private billService: BillService) { }
 
   ngOnInit(): void {
     //Establecer la forma de crear un id para cada carrito de compras
@@ -47,6 +47,10 @@ export class ShoppingCartListComponent implements OnInit {
   }
 
   generateBill(){
-
+    this.billService.createBill(this.shoppingCart).subscribe(
+      (res:any) => { console.log(res)        
+      },
+      err => console.log(err)
+    )
   }
 }

@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CenterContentComponent } from './components/center-content/center-content.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { BillComponent } from './components/bill/bill.component';
 
 
 const routes: Routes = [{
@@ -40,7 +41,9 @@ const routes: Routes = [{
 { path: 'restaurant/restaurant-form', component: RestaurantFormComponent },
 { path: 'restaurant/shoppingCart-list', component: ShoppingCartListComponent},
 { path: 'restaurant/saucer-edit/:id/:id', component: SaucerEditComponent},
-{ path: 'restaurant/weekly-saucer/:id', component: WeeklySaucersComponent}
+{ path: 'restaurant/weekly-saucer/:id', component: WeeklySaucersComponent},
+{ path: 'restaurant/bill', component: BillComponent}
+
 ];
 
 @NgModule({
