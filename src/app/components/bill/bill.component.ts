@@ -10,11 +10,14 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 export class BillComponent implements OnInit {
   itemsShopCart: any;
   shopCart: any;
+  IVA: any;
+  bill:any;
 
   constructor(private shoppingCartservice: ShoppingCartService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.showItems('1');
+    this.getBill();
   }
 
   showItems(idShopCart: string){
@@ -22,8 +25,23 @@ export class BillComponent implements OnInit {
       (res:any) => { console.log(res),
         this.itemsShopCart = res.data[0].shopping_cart.items;
         this.shopCart = res.data[0].shopping_cart;
+        this.IVA = (this.shopCart.total)*0.19;
       },
       err => console.log(err)
     )
+}   
+
+    getBill(){
+      this.shoppingCartservice.getBill().subscribe(
+        (res:any) => { console.log(res),
+          this.bill = res;
+          //console.log(this.bill)
+        },
+        err => console.log(err)
+      )
+    }
+
   }
-}
+
+
+

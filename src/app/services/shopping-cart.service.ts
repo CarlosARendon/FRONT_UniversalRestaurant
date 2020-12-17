@@ -24,4 +24,12 @@ export class ShoppingCartService {
   deleteItem(idItem: string ) {
     return this.http.delete(`${this.API_URI}/shopping_cart/delete_item/${idItem}`);
   }
+
+  getBill(){
+    return this.http.get(`${this.API_URI}/shopping_cart/billofsalelist`);
+  }
+
+  addBill(billInfo: any){
+    return this.http.post(`${this.API_URI}/shopping_cart/billofsale`,billInfo);
+  }
 }

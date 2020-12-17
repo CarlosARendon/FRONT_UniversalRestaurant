@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BillService } from 'src/app/services/bill.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
@@ -10,18 +10,19 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 })
 export class ShoppingCartListComponent implements OnInit {
   
-  shoppingCart: any = {
+  shoppingCart: any = {    
     name: '',
-    address: '',
     phone: '',
-    payment: '',
-    shopCartId: '1' 
+    email: '',
+    pay: '',
+    addres: '',
+    shopping_cart_id: '1',
   }
 
   itemsShopCart: any;
   shopCart: any;
 
-  constructor(private shoppingCartservice: ShoppingCartService, private activatedRoute: ActivatedRoute, private billService: BillService) { }
+  constructor(private shoppingCartservice: ShoppingCartService,private router: Router, private activatedRoute: ActivatedRoute, private billService: BillService) { }
 
   ngOnInit(): void {
     //Establecer la forma de crear un id para cada carrito de compras
@@ -46,11 +47,14 @@ export class ShoppingCartListComponent implements OnInit {
     )
   }
 
-  generateBill(){
-    this.billService.createBill(this.shoppingCart).subscribe(
-      (res:any) => { console.log(res)        
+  generateBill(){    
+    alert(JSON.stringify(this.shoppingCart));
+    this.shoppingCartservice.addBill(this.shoppingCart).subscribe(
+      (res:any) => { console.log(res),
+        this.router.navigate(['restaurant/bill']);    
       },
-      err => console.log(err)
+      
+      err => {this.router.navigate(['restaurant/bill']), console.log(err)}
     )
   }
 }

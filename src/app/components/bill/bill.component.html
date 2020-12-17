@@ -5,19 +5,19 @@
             <header>
                 <div class="row">
                     <div class="col">
-                        <a target="_blank" href="https://lobianijs.com">
+                        <a target="_blank" href="">
                             <img src="../../../assets/ur_logo.PNG" data-holder-rendered="true" />
                             </a>
                     </div>
                     <div class="col company-details">
                         <h2 class="name">
-                            <a target="_blank" href="https://lobianijs.com">
+                            <a target="_blank" href="">
                             Universal Restaurant
                             </a>
                         </h2>
-                        <div>Direccion Popayan, Cauca</div>
+                        <div>Dirección: Popayan, Cauca</div>
                         <div>(+57) 01800-universalrestaurant</div>
-                        <div>universalrestaurant@example.com</div>
+                        <div>universalrestaurant@unicauca.com</div>
                     </div>
                 </div>
             </header>
@@ -25,13 +25,14 @@
                 <div class="row contacts">
                     <div class="col invoice-to">
                         <div class="text-gray-light">Facturado a:</div>
-                        <h2 class="to">Nombre</h2>
-                        <div class="address">Direccion</div>
-                        <div class="email"><a href="mailto:john@example.com">correo</a></div>
+                        <h2 class="to">{{bill[0].name}}</h2>
+                        <div class="address">{{bill[0].addres}}</div>
+                        <div class="email">{{bill[0].email}}</div>
+                        <div class="email">Forma de pago: {{bill[0].pay}}</div>
                     </div>
                     <div class="col invoice-details">
-                        <h1 class="invoice-id">FACTURA # 3-2-1</h1>
-                        <div class="date">Fecha Factura: 01/10/2018</div>
+                        <h1 class="invoice-id">FACTURA # 00{{bill[0].id}}</h1>
+                        <div class="date">Fecha Factura: {{bill[0].created_at}}</div>
                         <div class="date">Fecha de Vencimiento: 31/12/2022</div>
                     </div>
                 </div>
@@ -58,12 +59,12 @@
                         <tr>
                             <td colspan="2"></td>
                             <td colspan="2">IVA 19%</td>
-                            <td>{{shopCart.total}}*0.19</td>
+                            <td>$ {{IVA}}.00</td>
                         </tr>
                         <tr>
                             <td colspan="2"></td>
                             <td colspan="2">TOTAL</td>
-                            <td>{{shopCart.total}}</td>
+                            <td>$ {{shopCart.total}}.00</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -73,7 +74,6 @@
                 Invoice was created on a computer and is valid without the signature and seal.
             </footer>
         </div>
-        <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
         <div></div>
     </div>
 </div>

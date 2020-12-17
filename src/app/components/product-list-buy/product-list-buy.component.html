@@ -1,4 +1,109 @@
-<div class="semanario">
+<div class="container-fluid">
+    <div class="">
+        <div class="card border border-primary">
+            <div class="card-header text-white bg-primary">
+                <h4>Sección del Semanario</h4>
+            </div>            
+            <div class="card-body"> 
+                <div>
+                    <h3>Disfruta del semanario de nuestro resturante único y de lo mejor en la ciudad</h3>
+                </div>
+                <div class="btn-sem">  
+                    <div class="img-responsive">
+                        <!-- Card -->
+                        <div class="card border border-primary">
+                            <img class="card-img-top img-responsive" src="https://ideakreativa.net/wp-content/uploads/2019/11/diseno-menu-carta-restaurante.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">Semanario</h4>
+                                <p class="card-text">En est sección podras visualizar el listado de platos ofrecidos en la semana.</p>
+                                <!--<a href="restaurant/weekly-saucer/{{idRestaurante}}">
+                                    SEMANARIO <i class="fas fa-angle-double-right"></i>
+                                </a> -->      
+                                <a href="restaurant/weekly-saucer/{{idRestaurante}}">
+                                    IR AL SEMANARIO SEMANARIO <i class="fas fa-angle-double-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Card -->
+                    </div>
+                    
+                </div>  
+            </div>
+        </div>
+    </div>
+
+    <div class="">
+        <div class="card border border-primary">
+            <div class="card-header text-white bg-primary">
+                <h4>Sección de platos y productos</h4>
+            </div>            
+            <div class="card-body"> 
+                <div>
+                    <h3>Platos y productos disponibles.</h3>
+                </div>
+                <div class="row">
+                    <div class="card border border-primary col-md-6">
+                        <div class="card-header text-white bg-primary">
+                            <h4>Sus deliciosos platos</h4>
+                        </div>
+                        <div class="card-body ">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6" *ngFor="let saucer of saucers">
+                                    <div class="card border-warning text-center">
+                                        <div class="card-header bg-success text-white justify-content-between align-items-center">
+                                            {{saucer.name}}                
+                                            <a [routerLink]="['/component/user/saucer-edit/',idRestaurante,saucer.id]" class="btn btn-info btn-block">
+                                                Editar plato
+                                            </a>                
+                                        </div>
+                                        <div class="">
+                                            <!--<img [src]="saucer.image" class="card-img-top">-->
+                                            <img [src]="saucer.image == '' ? '../../../assets/no-disponible.png' : saucer.image" class="card-img-top">
+                                        </div>
+                                        <div class="car-body bg-warning">
+                                            <p><b>Descripción: </b>{{saucer.description}} <br>
+                                                <b>Categoría: </b>{{saucer.category_saucer.name}} <br>
+                                                <b>Precio: </b>{{saucer.cost}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card border border-primary col-md-6">
+                        <div class="card-header text-white bg-primary">
+                            <h4>Sus deliciosos productos</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6" *ngFor="let product of products">
+                                    <div class="card border-info text-center">
+                                        <div class="card-header bg-danger text-white justify-content-between align-items-center">
+                                            {{product.name}}
+                                            {{product.id}}
+                                            <button class="btn btn-info border-warning" (click)="addItem(product.id)">
+                                                <i class="fas fa-shopping-cart"></i>
+                                            </button>
+                                        </div>
+                                        <img [src]="product.image" class="card-img-top">
+                                        <div class="car-body bg-warning">
+                                            <p>{{product.description}}</p>
+                                            <p><b>Precio: </b>{{product.cost}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </div>  
+            </div>
+        </div>
+    </div>                   
+</div>
+<!--<div class="semanario">
     <div class="btn-sem">        
             <a href="restaurant/weekly-saucer/{{idRestaurante}}">
                 SEMANARIO <i class="fas fa-angle-double-right"></i>
@@ -52,3 +157,4 @@
         </div>
     </div>
 </div>
+-->

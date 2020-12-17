@@ -19,7 +19,7 @@ export class ProductFormComponent implements OnInit {
     description: '',
     cost: '',
     stock: 0,
-    restaurant_id: '5',
+    restaurant_id: '1',
     categories_product_id: '',
     image: '',    
   }
@@ -60,7 +60,7 @@ export class ProductFormComponent implements OnInit {
       res => {
         console.log(res);
         //Verificar como enviar el id del restaurante de nuevo
-        this.router.navigate(['/restaurant/list/',this.product.id]);
+        //this.router.navigate(['/restaurant/list/',this.product.id]);
       },
       err => console.log(err)
     )

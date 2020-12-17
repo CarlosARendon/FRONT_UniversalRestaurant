@@ -54,12 +54,13 @@ export class ProductsService {
     dataToSend.append('description','new producto personalizado');
     dataToSend.append('saucer_category_id','1');
     dataToSend.append('restaurant_id',idR);
+    dataToSend.append('image',"''");
     for(let i=0; i< selectedProducts.length;i++){
       dataToSend.append('products['+i+'][default]','1')
       dataToSend.append('products['+i+'][product_id]',selectedProducts[i].product+'')
     }
   
-    return this.http.post(`${this.API_URI}/saucer/register`,dataToSend);
+    return this.http.post(`${this.API_URI}/saucer/register`,dataToSend)   
 
   }
 }

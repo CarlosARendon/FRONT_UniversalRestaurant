@@ -11,9 +11,9 @@ export class BillService {
   constructor(private http: HttpClient) {}
 
   createBill(bill: any){
-    return this.http.post(`${this.API_URI}/restaurant/bill`, bill);
+    return this.http.post(`${this.API_URI}/shopping_cart/billofsale`, bill);
   }
-
+  
   getBill(){
     return this.http.get(`${this.API_URI}/restaurant/bill-list`);
   }

@@ -22,7 +22,7 @@
         <div class="form-group row">
             <label for="email" class="col-6 col-md-2 col-form-label h2">Forma de pago:</label>
             <div class="col-12 col-md-4">
-                <select class="form-control" [(ngModel)]="shoppingCart.payment" name="payment">
+                <select class="form-control" [(ngModel)]="shoppingCart.pay" name="payment">
                     <option></option>
                     <option [ngValue]="'Contado'">Contado</option>
                     <option [ngValue]="'TarjetaCredito'">Tarjeta Credito</option>
@@ -78,7 +78,10 @@
                 <a routerLink="/restaurant/list-buy/2" class="btn btn-info btn-block">Seguir comprando</a>
             </div>
             <div class="col-xs-12 col-md-4">
-                <a href="/restaurant/bill" class="btn btn-success btn-block" id="procesar-compra">Realizar compra</a>
+                <button class="btn btn-success btn-block" (click)="generateBill()">
+                    Realizar compra
+                </button >
+                <!--<a href="/restaurant/bill" class="btn btn-success btn-block" id="procesar-compra">Realizar compra</a>-->
             </div>
         </div>
     </form>

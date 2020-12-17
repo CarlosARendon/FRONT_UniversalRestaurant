@@ -4,6 +4,7 @@ import { Product } from 'src/app/models/Product';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { ProductsService } from '../../services/products.service';
 
+
 @Component({
   selector: 'app-product-list-buy',
   templateUrl: './product-list-buy.component.html',

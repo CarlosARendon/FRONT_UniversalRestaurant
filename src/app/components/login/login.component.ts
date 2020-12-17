@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.router.navigateByUrl('/');/*
+    this.router.navigateByUrl('restaurant-home');/*
     const user = {email: this.email, password: this.password};
     this.userService.login(user).subscribe( data => {
       this.userService.setToken(data.token);

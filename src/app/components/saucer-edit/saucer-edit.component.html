@@ -1,37 +1,80 @@
 <style>
-    .miContainerFlex{
-        display: flex ;
+    .miContainerFlex {
+        display: flex;
         width: 100%;
         padding: 2rem;
         flex-wrap: wrap;
         justify-content: space-around;
     }
-    .card{
+
+    .card {
         height: 300px;
         width: 400px !important;
         margin-bottom: 2rem;
         border-color: gray;
         color: black;
     }
-
 </style>
-<div style="color: black;"><h3>Plato: {{saucer.name}}</h3></div>
-<h4 style="color: black;">Descripción: {{saucer.description}}</h4>
-<h5 style="color: black;">Ingredientes</h5>
-<div style="color: black;" *ngFor="let saucerProduct of defaultProducts">
-    <ul>
-        <li>{{saucerProduct.name}}</li>
-    </ul>
+<div class="container-fluid">
+
+    <div class="card-header text-white bg-primary">
+        <h3>Plato: {{saucer.name}}</h3>
+    </div>
+    <div class="card-body">
+        <div class="">
+            <div>
+                <h3 style="color: black;">Descripción: {{saucer.description}}</h3>
+            </div>
+            <div>
+                <h3 style="color: black;">Ingredientes:</h3>
+                <div style="color: black;" *ngFor="let product of saucerProducts">
+                    <ul>
+                        <li>{{product.name}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="card-header text-white bg-primary">
+        <h3>Personaliza el plato a tu gusto!</h3>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div *ngFor="let category of this.categories;index as i;"
+                class="card border border-primary col-lg-6 col-md-6">
+                <div class="card-header text-white bg-primary">
+                    <h3>{{category[0].category_product.name}}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="card-text" id="select{{category[0].category_product.id}}_option{{product.id}}"
+                        *ngFor="let product of category;index as j">
+                        <input (change)="changeInSelect($event.target.value,category[0].category_product.id)"
+                            type="checkbox" value="{{product.id}}">
+                        <label for="">{{product.name}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <a [routerLink]="['/component/user/list-buy/',idRest]" class="btn btn-danger col-md-6">
+                Volver
+            </a>
+            <button class="btn btn-primary col-md-6" (click)="storeNewConfiguration()">Guardar Y añadir al
+                carrito</button>
+        </div>
+    </div>
+
 </div>
-<button (click)="storeNewConfiguration()">Guardar Y añadir al carrito</button>
-<div class="btn-volver">        
+<!--<div class="btn-volver">        
     <a href="restaurant/list-buy/{{idRest}}">
         Volver <i class="fas fa-angle-double-right"></i>
     </a>       
-</div>
-<div style="color: black;">Personaliza el plato a tu gusto!</div>
-<div class="miContainerFlex">
+</div>-->
 
+<!--<div class="miContainerFlex">
     <div *ngFor="let category of this.categories;index as i;"  class="card" style="width: 18rem;">
         <div class="card-body">
                 <h3 class="card-title">{{category[0].category_product.name}}</h3>
@@ -40,7 +83,5 @@
                     <label for="">{{product.name}}</label>
                 </div>
         </div>
-    </div>
-    
-</div>
-
+    </div>    
+</div>-->

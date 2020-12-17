@@ -20,7 +20,7 @@ import { BillComponent } from './components/bill/bill.component';
 
 const routes: Routes = [{
   path: '',
-  redirectTo: 'restaurant-home',
+  redirectTo: 'login',
   pathMatch: 'full'
 },
 //Rutas nuevas

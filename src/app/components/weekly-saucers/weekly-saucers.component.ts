@@ -57,7 +57,7 @@ export class WeeklySaucersComponent implements OnInit {
   getProduct(idRest: string, idsProd: any) {
     this.productService.getPlate(idRest, idsProd).subscribe(
       (res: any) => {
-        this.saucers.push(res.data[0].saucer),
+        this.saucers.push(res.data[0].saucer.products_defaults[0]),
           console.log(res)
       },
       err => console.log(err)
